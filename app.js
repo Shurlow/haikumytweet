@@ -28,7 +28,7 @@ var Oauth = new oauth.OAuth(
 //   access_token_secret: 'd5PizJ3umW4jUx1XPBN1Q4CShS5sZ8ceLCx5yS05yeHFf'
 // })
 var app = express()
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3001
 
 app.set('views', __dirname + '/public')
 app.set('view engine', 'hjs')
@@ -63,6 +63,7 @@ app.post('/keyword', function(req, res) {
         console.error(err)
         res.send(err)
       } else {
+        console.log(data.statuses)
         findHaiku(data, query, function(H) {
           res.send(H)
         })
@@ -136,6 +137,7 @@ function findHaiku(data, query, cb) {
       }
       else {
         console.log('Found haiku GOOD'.green)
+        data.url = "http://twitter.com/" +  tweets[i].user.screen_name + "/status/" + tweets[i].id_str
         console.log(data)
         data['q'] = query
         cb(data)

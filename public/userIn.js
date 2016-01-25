@@ -8,6 +8,9 @@ $(function() {
   var text3 = $('#text3')
   var query = $('#keyword')
   var loadimg = $('#loadimg')
+  var twiturl = $('#twiturl')
+
+  var url = null
 
   $.ajax({
         url: '/random',
@@ -31,6 +34,14 @@ $(function() {
   input.focus(function() {
     $(this).val("")
   })
+
+  twiturl.click(function(e) {
+    console.log('URL:', url)
+    if (url !== null) {
+      window.open(url)
+    }
+  })
+
 
   input.on('keypress', function(e){
 
@@ -57,14 +68,15 @@ $(function() {
 
         // console.log(res.line1)
         // console.log(res.line2)
-        // console.log(loadimg)
+        console.log(res.url)
         // loadimg.hide()
+        url = res.url
 
         text1.text(res.line1)
         text2.text(res.line2)
         text3.text(res.line3)
         // query.text(res.q)
-        input.val(res.q)
+        // input.val(res.q) 
       })
 
       // $(this).val("")

@@ -27,6 +27,7 @@ button:focus {
 h1 {
   font-size: 8em;
   margin-bottom: 20px;
+  border-bottom: 4px solid black;
 }
 
 h2 {
@@ -54,6 +55,7 @@ p {
   height: 100vh;
   /*outline: solid red;*/
   padding: 5em;
+  padding-top: 15em;
   float: right;
 }
 
@@ -70,11 +72,28 @@ p {
 }
 
 .left img {
-  width: 90px;
-  margin-left: -15px;
+  width: 100px;
+  margin-left: -18px;
   margin-top: -8px;
   /*margin-top: 5px;*/
   float: left;
+}
+
+#twiturl {
+  width: 75px;
+  margin-top: -20px;
+  margin-right: -25px;
+  float: right;
+  background: black;
+}
+
+#twiturl:hover {
+  cursor: pointer;
+  background: rgba(1,1,1, 0.69);
+}
+
+#twiturl img {
+  width: 100%;
 }
 
 /*#keyword {
@@ -92,11 +111,14 @@ input {
   text-decoration: none;
   width: 8em;
   font-weight: 600;
-  font-size: 6em;
+  font-size: 7em;
+  /*border-bottom: 4px solid #EA4239;*/
 }
 
 #keywordInput:hover {
   color: #EA4239;
 }
 
-@media (max-width: 100px)
+@media (max-width: 100px) {
+
+}
