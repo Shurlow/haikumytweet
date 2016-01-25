@@ -1,0 +1,82 @@
+
+\nonstopmode
+\newcommand{\keyw}[1]{\ \mbox{\bf #1}\ }
+\newcommand{\pname}[1]{\ \mbox{\sc #1}\ }
+\newcommand{\vname}[1]{\mbox{\em #1}}
+\newcommand{\num}[1]{\ \mbox{#1}\ }
+\newcommand{\txt}[1]{\ \mbox{#1}\ }
+\newcommand{\ind} {\hspace{5mm}}
+
+\newcounter{algstep}
+\newcommand{\firststep}{\setcounter{algstep}{1} \thealgstep.}
+\newcommand{\nextstep}{\stepcounter{algstep} \thealgstep.}
+
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{alltt}
+\usepackage{times}
+\usepackage{courier}
+\usepackage{helvet}
+\usepackage{graphicx}
+% \usepackage{amsmath}
+  
+
+\pagestyle{empty}
+\setlength{\parskip}{3mm}
+
+\begin{document}
+% \title{AI Haiku}
+% \author{Scott Hurlow}
+% \date{September, 22 2014}
+% \maketitle
+
+
+
+% \section{Haiku Algorithm Pseudocode}
+% The MakeHaiku algorithm checks if given input text matches haiku
+% syllable rules. If it does, it constructs and returns the haiku as a string. We assume
+% english grammer rules apply, but the algorithm can be streatched
+% to work for other languages and grammers.
+
+  \[
+  \begin{array}{lll}
+  \multicolumn{2}{l}{\pname{Algorithm\_MakeHaiku}( S )} \\
+  & \textnormal{// Input: Array, S, contains a list of strings (each one word)} \\
+  & \textnormal{// representing the sentence to be tested.} \\
+  % \firststep & \keyw{set} haikuStr = "" \\
+  \nextstep & \keyw{set} sylTotal = 0 \\
+  \nextstep & \keyw{set} line = 1 \\
+  \nextstep & \keyw{set} endIndex = 0 \\ \\
+  \nextstep & \keyw{for} i = 0 \keyw{to} S.length - 1: \\
+  \nextstep & \ind \keyw{set} word = S[i] \\
+  \nextstep & \ind \keyw{set} syl = word.countSyllables() \\ \\
+  \nextstep & \ind \keyw{if} line == 1: \\
+  \nextstep & \ind \ind \keyw{if} sylTotal == 5: \\
+  % \nextstep & \ind \ind \ind lineIndex[1] = i \\
+  \nextstep & \ind \ind \ind line++ \\
+  \nextstep & \ind \ind \keyw{else if} sylTotal > 5: \textnormal{// if syllable total is greater than 5 but still at line 1}\\
+  \nextstep & \ind \ind \ind \keyw{break} \\
+  \nextstep & \ind \keyw{else if} line == 2: \\
+  \nextstep & \ind \ind \keyw{if} sylTotal == 12: \\
+  % \nextstep & \ind \ind \ind lineIndex[2] = i \\
+  \nextstep & \ind \ind \ind line++ \\
+  \nextstep & \ind \ind \keyw{else if} sylTotal > 12:\\
+  \nextstep & \ind \ind \ind \keyw{break} \\
+  \nextstep & \ind \keyw{else:} \\
+  \nextstep & \ind \ind \keyw{if} sylTotal == 17: \\
+  \nextstep & \ind \ind \ind endIndex = i \\
+  \nextstep & \ind \ind \ind \keyw{break} \\
+  \nextstep & \ind \ind \keyw{else if} sylTotal > 17: \\
+  \nextstep & \ind \ind \ind \keyw{break} \\ \\
+  \nextstep & \keyw{if} sylTotal == 17: \textnormal{// Vaid haiku! build string and return} \\
+  \nextstep & \ind \keyw{set} haikuStr = S[ 0...endIndex ].join() \\
+  % \nextstep & \ind \keyw{for} i = 0 \keyw{to} lineIndex[3]:\\
+  % \nextstep & \ind \ind haikuStr = haikuStr + S[i] \\
+  \nextstep & \ind \keyw{return} haikuStr \\
+  \nextstep & \keyw{else:} \textnormal{  //If loop ends with syllable total not equal to 17, S is NOT valid haiku} \\
+  \nextstep & \ind \keyw{return} "Error"
+
+  \end{array}
+  \]
+
+\end{document}

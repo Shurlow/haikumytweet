@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 400;
+  font-size: 10px;
+  margin: 0;
+}
+
+body {
+  font-weight: 600;
+  padding: 1em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 8em;
+}
+
+p {
+  font-size: 4em;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+#haiku {
+  padding-left: 5em;
+}
+
+#keyword {
+}
+
+#keywordInput {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  outline: none;
+  width: 8em;
+  font-weight: 600;
+  font-size: 6em;
+  margin-top: 1em;
+}

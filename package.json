@@ -1,0 +1,19 @@
+{
+  "name": "HaikuMyTweet",
+  "version": "0.2.2",
+  "description": "Limerick Generator from Twitter feed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Hurlow",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.2",
+    "hjs": "0.0.6",
+    "body-parser": "^1.9.2",
+    "cmudict": "^1.0.2",
+    "oauth": "^0.9.12",
+    "colors": "^1.0.3"
+  }
+}
