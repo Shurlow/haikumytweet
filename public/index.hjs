@@ -9,17 +9,22 @@
 
 <body>
 
-  <h1>Type keyword and Twitter will write you a haiku: </h1>
-  
-  <div>
-    <div class="left">
-      <input type='text' id="keywordInput">
-      <p id='keyword'> </p>
+  <div class="left">
+    <h1>Haiku My Tweet</h1>
+    <img src="haikuheart.svg" id="loadimg"></img>
+    <input type='text' id="keywordInput" value="..."></input>
+    <!-- <h1>Cove</h1> -->
+    <!-- <h2>Type keyword and Twitter will write you a haiku: </h2> -->
+        <!-- <p>keyword: <span id='keyword'></span> </p>  -->
+      </div>
     </div>
-    <div id='haiku' class="left">
-      <p id="text1"> </p>
-      <p id="text2">   </p>
-      <p id="text3">   </p>
+  </div>
+
+  <div class="right">
+    <div id='haiku'>
+      <p id="text1"></p>
+      <p id="text2"></p>
+      <p id="text3"></p>
     </div>
   </div>
 

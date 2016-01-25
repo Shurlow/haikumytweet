@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 var fs = require('fs')
 var colors = require('colors')
 var haiku = require('./haiku')
+var randomWords = require('random-words');
 var oauth = require('oauth')
 var Oauth = new oauth.OAuth(
     'https://api.twitter.com/oauth/request_token',
@@ -58,10 +59,14 @@ app.post('/keyword', function(req, res) {
     '2320992961-DPRXx6kiVsGt7g0bHqG014mGpEomiwXG0J5q4ok',
     'd5PizJ3umW4jUx1XPBN1Q4CShS5sZ8ceLCx5yS05yeHFf',
     function(err, data){
-      if (err) console.error(err)
-      findHaiku(data, query, function(H) {
-        res.send(H)
-      })
+      if (err) {
+        console.error(err)
+        res.send(err)
+      } else {
+        findHaiku(data, query, function(H) {
+          res.send(H)
+        })
+      }
     })
 
   // var query = 'pizza'
@@ -80,6 +85,28 @@ app.post('/keyword', function(req, res) {
   //     //   })
   //     // }
   // })
+})
+
+app.post('/random', function(req, res) {
+  var word = randomWords(1)
+  console.log(word)
+
+  Oauth.get(
+    'https://api.twitter.com/1.1/search/tweets.json?count=20&q='+word,
+    '2320992961-DPRXx6kiVsGt7g0bHqG014mGpEomiwXG0J5q4ok',
+    'd5PizJ3umW4jUx1XPBN1Q4CShS5sZ8ceLCx5yS05yeHFf',
+    function(err, data){
+      if (err) {
+        console.error(err)
+        res.send(err)
+      } else {
+        findHaiku(data, word, function(H) {
+          res.send(H)
+        }) 
+      }
+
+    })
+
 })
 
 
