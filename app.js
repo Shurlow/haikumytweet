@@ -3,6 +3,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require("morgan");
 const axios = require('axios')
+require('dotenv').config()
+
 const port = process.env.PORT || 3001
 
 const app = express()
@@ -30,6 +32,7 @@ app.use(morgan('dev'))
 //       'User-Agent': 'haikutweet/0.1.0'
 //     })
 
+const token = process.env.TWITTER_TOKEN
 
 app.get('/', function(req, res) {
   const search = req.query.search
