@@ -9,7 +9,7 @@ describe('countSyllables', function() {
   })
 })
 
-describe('Haiku', function () {
+describe('makeHaiku', function () {
   it('generates a haiku from array of strings', function (done) {
 
     const validHaiku = 'This is a haiku. I love bananas a lot. Dont judge me my dude'
@@ -21,8 +21,20 @@ describe('Haiku', function () {
     // const invalidhaiku = 'This is too damn short!'
 
     const haiku = makeHaiku(validHaiku)
-    console.log('--- DONE ---', haiku)
     expect(haiku).to.eql(validOutput)
     done()
+  })
+
+  it('should return null if input string is too short', function() {
+    const shortString1 = 'This is too damn short!'
+    const shortString2 = ''
+
+    expect(makeHaiku(shortString1)).to.equal(null)
+    expect(makeHaiku(shortString2)).to.equal(null)
+  })
+
+  it('should return null if input string is too large', function() {
+    const longString = 'This is haiku fits well. But it is still bad. Definitley too long I think. hmmm'
+    expect(makeHaiku(longString)).to.equal(null)
   })
 })
